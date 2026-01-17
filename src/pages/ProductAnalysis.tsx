@@ -227,6 +227,7 @@ export default function ProductAnalysis() {
                   <YAxis
                     tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }}
                     domain={["auto", "auto"]}
+                    tickFormatter={(value) => `$${value}`}
                   />
                   <Tooltip
                     contentStyle={{
@@ -284,7 +285,7 @@ export default function ProductAnalysis() {
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={comparisonData} layout="vertical">
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" horizontal={true} vertical={false} />
-                  <XAxis type="number" tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} />
+                  <XAxis type="number" tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} tickFormatter={(value) => `$${value}`} />
                   <YAxis
                     type="category"
                     dataKey="port"
@@ -297,6 +298,7 @@ export default function ProductAnalysis() {
                       border: "1px solid hsl(var(--border))",
                       borderRadius: "8px",
                     }}
+                    formatter={(value: number) => [`$${value}/MT`, ""]}
                   />
                   <Bar dataKey="product1" fill="hsl(var(--chart-1))" name={products.find(p => p.id === selectedProduct)?.name} radius={[0, 4, 4, 0]} />
                   <Bar dataKey="product2" fill="hsl(var(--chart-2))" name={products.find(p => p.id === compareProduct)?.name} radius={[0, 4, 4, 0]} />

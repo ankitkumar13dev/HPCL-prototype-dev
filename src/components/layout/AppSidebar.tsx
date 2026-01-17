@@ -76,18 +76,22 @@ export function AppSidebar() {
         {/* Logo */}
         <div className="flex items-center h-16 px-4 border-b border-sidebar-border">
           <div className="flex items-center gap-3 overflow-hidden">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-sidebar-primary flex-shrink-0">
-              <Ship className="w-5 h-5 text-sidebar-primary-foreground" />
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white flex-shrink-0">
+              <img 
+                src="/hpcl-logo-transparent.png" 
+                alt="HPCL Logo" 
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className={cn(
               "flex flex-col transition-opacity duration-200 ease-in-out",
               isExpanded ? "opacity-100" : "opacity-0 w-0"
             )}>
               <span className="text-sm font-semibold text-sidebar-accent-foreground whitespace-nowrap">
-                HPCL Trade Intel
+                HPCL PowerLab
               </span>
               <span className="text-xs text-sidebar-foreground/60 whitespace-nowrap">
-                Port Analytics
+                Trade Analytics
               </span>
             </div>
           </div>

@@ -43,7 +43,7 @@ export function TradeValueChart() {
               tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }}
               tickLine={{ stroke: "hsl(var(--border))" }}
               axisLine={{ stroke: "hsl(var(--border))" }}
-              tickFormatter={(value) => `$${value}`}
+              tickFormatter={(value) => `$${value}M`}
             />
             <Tooltip
               contentStyle={{
