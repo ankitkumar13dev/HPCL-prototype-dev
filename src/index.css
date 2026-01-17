@@ -1,0 +1,670 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* HPCL Port Trade Intelligence - Enterprise Design System */
+
+@layer base {
+  :root {
+    /* Core backgrounds - Light slate with depth */
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
+
+    /* Card surfaces with subtle elevation */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    /* Popover/dropdown surfaces */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary - Deep Navy (Maritime/Trust) */
+    --primary: 222 47% 15%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary - Slate for subtle UI */
+    --secondary: 215 20% 93%;
+    --secondary-foreground: 222 47% 20%;
+
+    /* Muted - Soft backgrounds */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* Accent - Teal/Cyan (Maritime highlight) */
+    --accent: 187 72% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Semantic colors */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 69% 31%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    /* Border and input */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 187 72% 42%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar - Deep navy */
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 215 20% 75%;
+    --sidebar-primary: 187 72% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 18%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 222 30% 20%;
+    --sidebar-ring: 187 72% 50%;
+
+    /* Chart colors */
+    --chart-1: 187 72% 42%;
+    --chart-2: 222 47% 35%;
+    --chart-3: 152 69% 31%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 0 72% 51%;
+    --chart-6: 280 60% 50%;
+
+    /* Data visualization gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(222, 47%, 15%) 0%, hsl(222, 47%, 25%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(187, 72%, 42%) 0%, hsl(187, 72%, 55%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(152, 69%, 31%) 0%, hsl(152, 69%, 41%) 100%);
+
+    /* Shadows for depth */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Modern Dark Theme - Inspired by Snowflake/Stripe/Bloomberg */
+  .dark-theme {
+    /* Rich dark blue-grays (not pure black) */
+    --background: 220 25% 8%;
+    --foreground: 220 10% 96%;
+
+    /* Elevated card surfaces with subtle depth */
+    --card: 220 20% 11%;
+    --card-foreground: 220 10% 96%;
+
+    --popover: 220 20% 11%;
+    --popover-foreground: 220 10% 96%;
+
+    /* Electric cyan primary */
+    --primary: 187 85% 55%;
+    --primary-foreground: 220 25% 10%;
+
+    /* Subtle secondary */
+    --secondary: 220 18% 16%;
+    --secondary-foreground: 220 10% 90%;
+
+    /* Muted backgrounds */
+    --muted: 220 16% 14%;
+    --muted-foreground: 220 10% 65%;
+
+    /* Vibrant accent */
+    --accent: 187 85% 48%;
+    --accent-foreground: 220 10% 98%;
+
+    /* Enhanced semantic colors for dark mode */
+    --destructive: 0 70% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 50%;
+    --success-foreground: 220 25% 10%;
+
+    --warning: 38 95% 58%;
+    --warning-foreground: 220 25% 10%;
+
+    --info: 199 90% 58%;
+    --info-foreground: 220 25% 10%;
+
+    /* Refined borders for depth */
+    --border: 220 18% 18%;
+    --input: 220 18% 18%;
+    --ring: 187 85% 55%;
+
+    /* Sidebar - Rich navy */
+    --sidebar-background: 220 28% 9%;
+    --sidebar-foreground: 220 12% 75%;
+    --sidebar-primary: 187 85% 55%;
+    --sidebar-primary-foreground: 220 25% 10%;
+    --sidebar-accent: 220 22% 14%;
+    --sidebar-accent-foreground: 220 10% 96%;
+    --sidebar-border: 220 18% 16%;
+    --sidebar-ring: 187 85% 55%;
+
+    /* Refined chart colors for dark mode */
+    --chart-1: 187 85% 55%;
+    --chart-2: 262 70% 65%;
+    --chart-3: 142 70% 50%;
+    --chart-4: 38 95% 58%;
+    --chart-5: 0 70% 58%;
+    --chart-6: 280 65% 60%;
+
+    /* Modern shadows with color tint */
+    --shadow-card: 0 4px 12px 0 rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(187, 238, 255, 0.05);
+  }
+
+  /* Light Theme - Clean & Professional */
+  .light-theme {
+    /* Core backgrounds - Light slate with depth */
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
+
+    /* Card surfaces with subtle elevation */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    /* Popover/dropdown surfaces */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary - Deep Navy (Maritime/Trust) */
+    --primary: 222 47% 15%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary - Slate for subtle UI */
+    --secondary: 215 20% 93%;
+    --secondary-foreground: 222 47% 20%;
+
+    /* Muted - Soft backgrounds */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* Accent - Teal/Cyan (Maritime highlight) */
+    --accent: 187 72% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Semantic colors */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 69% 31%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    /* Border and input */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 187 72% 42%;
+
+    /* Sidebar - Deep navy */
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 215 20% 75%;
+    --sidebar-primary: 187 72% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 18%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 222 30% 20%;
+    --sidebar-ring: 187 72% 50%;
+
+    /* Chart colors */
+    --chart-1: 187 72% 42%;
+    --chart-2: 222 47% 35%;
+    --chart-3: 152 69% 31%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 0 72% 51%;
+    --chart-6: 280 60% 50%;
+
+    /* Shadows for depth */
+    --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Monokai Theme - Vibrant & Bold */
+  .monokai-theme {
+    /* Warm dark background (brownish-gray) */
+    --background: 30 8% 13%;
+    --foreground: 60 30% 96%;
+
+    /* Rich elevated surfaces */
+    --card: 30 10% 16%;
+    --card-foreground: 60 30% 96%;
+
+    --popover: 30 10% 16%;
+    --popover-foreground: 60 30% 96%;
+
+    /* Vibrant green primary */
+    --primary: 80 76% 53%;
+    --primary-foreground: 30 8% 13%;
+
+    /* Purple secondary */
+    --secondary: 280 85% 70%;
+    --secondary-foreground: 30 8% 13%;
+
+    /* Darker muted with warmth */
+    --muted: 30 10% 20%;
+    --muted-foreground: 60 15% 65%;
+
+    /* Bright cyan accent */
+    --accent: 180 100% 50%;
+    --accent-foreground: 30 8% 13%;
+
+    /* Vibrant semantic colors */
+    --destructive: 0 100% 67%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 115 85% 60%;
+    --success-foreground: 30 8% 13%;
+
+    --warning: 38 100% 60%;
+    --warning-foreground: 30 8% 13%;
+
+    --info: 180 100% 50%;
+    --info-foreground: 30 8% 13%;
+
+    /* Subtle borders with color */
+    --border: 30 12% 22%;
+    --input: 30 12% 22%;
+    --ring: 80 76% 53%;
+
+    /* Sidebar - Deep warm dark */
+    --sidebar-background: 30 12% 11%;
+    --sidebar-foreground: 60 20% 75%;
+    --sidebar-primary: 80 76% 53%;
+    --sidebar-primary-foreground: 30 8% 13%;
+    --sidebar-accent: 30 15% 18%;
+    --sidebar-accent-foreground: 60 30% 96%;
+    --sidebar-border: 30 12% 20%;
+    --sidebar-ring: 80 76% 53%;
+
+    /* Bold chart colors - Monokai palette */
+    --chart-1: 80 76% 53%;     /* Bright green */
+    --chart-2: 31 100% 71%;    /* Orange */
+    --chart-3: 326 100% 74%;   /* Pink */
+    --chart-4: 186 100% 69%;   /* Cyan */
+    --chart-5: 274 100% 75%;   /* Purple */
+    --chart-6: 54 100% 62%;    /* Yellow */
+
+    /* Vibrant shadows */
+    --shadow-card: 0 4px 16px 0 rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(166, 226, 46, 0.1);
+  }
+
+  /* Cyberpunk Neon Theme - Maximum Vibrancy */
+  .cyberpunk-theme {
+    /* Deep purple-black background */
+    --background: 280 15% 8%;
+    --foreground: 300 10% 96%;
+
+    /* Elevated cards with purple tint */
+    --card: 280 20% 15%;
+    --card-foreground: 300 10% 96%;
+
+    --popover: 280 20% 15%;
+    --popover-foreground: 300 10% 96%;
+
+    /* Hot magenta primary */
+    --primary: 320 100% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Electric purple secondary */
+    --secondary: 280 60% 35%;
+    --secondary-foreground: 300 10% 96%;
+
+    /* Darker muted with purple */
+    --muted: 280 18% 18%;
+    --muted-foreground: 300 8% 65%;
+
+    /* Bright cyan accent */
+    --accent: 180 100% 55%;
+    --accent-foreground: 280 15% 8%;
+
+    /* Neon semantic colors */
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 120 100% 55%;
+    --success-foreground: 280 15% 8%;
+
+    --warning: 45 100% 60%;
+    --warning-foreground: 280 15% 8%;
+
+    --info: 200 100% 60%;
+    --info-foreground: 280 15% 8%;
+
+    /* Glowing borders */
+    --border: 280 30% 25%;
+    --input: 280 30% 25%;
+    --ring: 320 100% 65%;
+
+    /* Sidebar - Deep purple-black */
+    --sidebar-background: 280 20% 10%;
+    --sidebar-foreground: 300 15% 75%;
+    --sidebar-primary: 320 100% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 280 25% 18%;
+    --sidebar-accent-foreground: 300 10% 96%;
+    --sidebar-border: 280 30% 20%;
+    --sidebar-ring: 320 100% 65%;
+
+    /* Extreme neon chart colors */
+    --chart-1: 320 100% 65%;   /* Hot pink */
+    --chart-2: 180 100% 55%;   /* Electric cyan */
+    --chart-3: 120 100% 55%;   /* Lime green */
+    --chart-4: 45 100% 60%;    /* Neon orange */
+    --chart-5: 280 100% 70%;   /* Bright purple */
+    --chart-6: 60 100% 60%;    /* Electric yellow */
+
+    /* Glowing shadows */
+    --shadow-card: 0 4px 20px 0 rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 0, 255, 0.15), 0 0 20px rgba(255, 0, 255, 0.1);
+  }
+
+  /* Ocean Depth Theme - Professional Aquatic */
+  .ocean-theme {
+    /* Very dark navy background */
+    --background: 220 35% 8%;
+    --foreground: 200 15% 96%;
+
+    /* Medium navy cards */
+    --card: 220 30% 18%;
+    --card-foreground: 200 15% 96%;
+
+    --popover: 220 30% 18%;
+    --popover-foreground: 200 15% 96%;
+
+    /* Bright aquamarine primary */
+    --primary: 180 85% 55%;
+    --primary-foreground: 220 35% 8%;
+
+    /* Deep blue secondary */
+    --secondary: 220 40% 25%;
+    --secondary-foreground: 200 15% 96%;
+
+    /* Ocean floor muted */
+    --muted: 220 25% 22%;
+    --muted-foreground: 200 12% 65%;
+
+    /* Bright teal accent */
+    --accent: 175 80% 50%;
+    --accent-foreground: 220 35% 8%;
+
+    /* Vibrant ocean semantic colors */
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 160 75% 50%;
+    --success-foreground: 220 35% 8%;
+
+    --warning: 35 100% 60%;
+    --warning-foreground: 220 35% 8%;
+
+    --info: 200 85% 58%;
+    --info-foreground: 220 35% 8%;
+
+    /* Ocean borders */
+    --border: 220 30% 25%;
+    --input: 220 30% 25%;
+    --ring: 180 85% 55%;
+
+    /* Sidebar - Deep ocean */
+    --sidebar-background: 220 40% 10%;
+    --sidebar-foreground: 200 15% 75%;
+    --sidebar-primary: 180 85% 55%;
+    --sidebar-primary-foreground: 220 35% 8%;
+    --sidebar-accent: 220 35% 16%;
+    --sidebar-accent-foreground: 200 15% 96%;
+    --sidebar-border: 220 35% 20%;
+    --sidebar-ring: 180 85% 55%;
+
+    /* Bioluminescent chart colors */
+    --chart-1: 180 85% 55%;    /* Aqua */
+    --chart-2: 15 90% 60%;     /* Coral */
+    --chart-3: 175 80% 50%;    /* Teal */
+    --chart-4: 45 95% 58%;     /* Gold */
+    --chart-5: 280 75% 65%;    /* Violet */
+    --chart-6: 160 75% 50%;    /* Sea green */
+
+    /* Deep ocean shadows */
+    --shadow-card: 0 4px 20px 0 rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 255, 255, 0.08), 0 0 16px rgba(0, 128, 255, 0.08);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Global Page Scrollbar - Subtle & Visible */
+  body::-webkit-scrollbar,
+  main::-webkit-scrollbar,
+  .overflow-y-auto::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  body::-webkit-scrollbar-track,
+  main::-webkit-scrollbar-track,
+  .overflow-y-auto::-webkit-scrollbar-track {
+    background: hsl(var(--muted) / 0.2);
+  }
+
+  body::-webkit-scrollbar-thumb,
+  main::-webkit-scrollbar-thumb,
+  .overflow-y-auto::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--accent) / 0.5), hsl(var(--accent) / 0.6));
+    border-radius: 100px;
+  }
+
+  body::-webkit-scrollbar-thumb:hover,
+  main::-webkit-scrollbar-thumb:hover,
+  .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(var(--accent) / 0.6), hsl(var(--accent) / 0.75));
+  }
+
+  /* Firefox */
+  body, main, .overflow-y-auto {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--accent) / 0.55) hsl(var(--muted) / 0.2);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Modern Card Elevation System */
+  .card-elevated {
+    @apply bg-card rounded-lg shadow-sm;
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-elevated:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(187, 238, 255, 0.1);
+  }
+
+  .kpi-card {
+    @apply bg-card rounded-lg p-5;
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(187, 238, 255, 0.08);
+  }
+
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, hsl(var(--accent) / 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .kpi-card:hover::before {
+    opacity: 1;
+  }
+
+  /* KPI Card Trend Borders */
+  .kpi-card-trend-up {
+    border-top: 2px solid hsl(var(--success));
+  }
+
+  .kpi-card-trend-down {
+    border-top: 2px solid hsl(var(--destructive));
+  }
+
+  .kpi-card-trend-neutral {
+    border-top: 2px solid hsl(var(--muted-foreground) / 0.3);
+  }
+
+  .kpi-card-warning {
+    border-top: 2px solid hsl(var(--warning));
+  }
+
+  .kpi-card-destructive {
+    border-top: 2px solid hsl(var(--destructive));
+  }
+
+  .data-table {
+    @apply w-full text-sm;
+  }
+
+  .data-table th {
+    @apply px-4 py-3 text-left font-medium text-muted-foreground bg-muted/50 border-b;
+  }
+
+  .data-table td {
+    @apply px-4 py-3 border-b border-border/50;
+  }
+
+  .data-table tr:hover td {
+    @apply bg-muted/30;
+  }
+
+  .stat-value {
+    @apply text-2xl font-bold tracking-tight;
+  }
+
+  .stat-label {
+    @apply text-sm text-muted-foreground font-medium;
+  }
+
+  .trend-up {
+    @apply text-success;
+  }
+
+  .trend-down {
+    @apply text-destructive;
+  }
+
+  .badge-status {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .chart-container {
+    @apply w-full h-full min-h-[300px];
+  }
+
+  /* Modern Custom Scrollbar Styles */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted) / 0.15);
+    border-radius: 100px;
+    margin: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--accent) / 0.5), hsl(var(--accent) / 0.7));
+    border-radius: 100px;
+    border: 2px solid hsl(var(--background));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(var(--accent) / 0.7), hsl(var(--accent) / 0.9));
+    border-width: 1px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:active {
+    background: hsl(var(--accent));
+  }
+
+  /* Firefox scrollbar */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--accent) / 0.6) hsl(var(--muted) / 0.15);
+  }
+
+  /* Alerts Panel Scrollbar - Distinct accent color */
+  .alerts-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .alerts-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted) / 0.2);
+    border-radius: 100px;
+    margin: 4px;
+  }
+
+  .alerts-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--chart-1) / 0.5), hsl(var(--chart-1) / 0.7));
+    border-radius: 100px;
+    border: 2px solid hsl(var(--card));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .alerts-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(var(--chart-1) / 0.7), hsl(var(--chart-1) / 0.9));
+    border-width: 1px;
+  }
+
+  .alerts-scrollbar::-webkit-scrollbar-thumb:active {
+    background: hsl(var(--chart-1));
+  }
+
+  /* Firefox scrollbar for alerts */
+  .alerts-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--chart-1) / 0.6) hsl(var(--muted) / 0.2);
+  }
+
+  /* Scroll Snap for Alerts */
+  .scroll-snap-container {
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 0;
+    scroll-padding-bottom: 0;
+  }
+
+  .scroll-snap-item {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
