@@ -11,10 +11,6 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
-    allowedHosts: [
-      "hpcl-prototype-dev.onrender.com",
-      ".onrender.com", // Allow all Render domains
-    ],
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {

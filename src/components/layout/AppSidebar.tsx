@@ -76,13 +76,11 @@ export function AppSidebar() {
         {/* Logo */}
         <div className="flex items-center h-16 px-4 border-b border-sidebar-border">
           <div className="flex items-center gap-3 overflow-hidden">
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white flex-shrink-0">
-              <img 
-                src="/hpcl-logo-transparent.png" 
-                alt="HPCL Logo" 
-                className="w-full h-full object-contain"
-              />
-            </div>
+            <img 
+              src="/hpcl-logo-transparent.png" 
+              alt="HPCL Logo" 
+              className="w-8 h-8 object-contain flex-shrink-0"
+            />
             <div className={cn(
               "flex flex-col transition-opacity duration-200 ease-in-out",
               isExpanded ? "opacity-100" : "opacity-0 w-0"
